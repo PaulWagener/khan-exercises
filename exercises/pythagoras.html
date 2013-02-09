@@ -4,30 +4,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Pythagorean theorem 1</title>
     <script src="../khan-exercise.js"></script>
-    <script>
-        function betterTriangle(width, height, A, B, C, ab, bc, ac) {
-            var scale = 5 / Math.sqrt(width * width + height * height);
-            width *= scale;
-            height *= scale;
-
-            with ( KhanUtil.currentGraph ) {
-                // Leave some space for the labels
-                init({ range: [[-1.5, width + 1], [-1, height + 1]] });
-
-                path([ [0, 0], [0, height], [width, 0], true ]);
-
-                label( [0, height], "A", "above left" );
-                label( [0, 0], "B", "below left" );
-                label( [width, 0], "C", "below right" );
-
-                label( [0, height/2], ab, "left" );
-                label( [width/2, 0], bc, "below" );
-                label( [width/2, height/2], ac, "above right", {
-                    labelDistance: 3
-                } );
-            }
-        }
-    </script>
     <style>
         .schema span {
             width: 60px;
@@ -42,9 +18,10 @@
     <div class="problems">
         <div id="find-a-leg">
             <div class="vars" data-ensure="AC > BC">
-                <var id="AC">randRange(10, 40)</var>
-                <var id="BC">randRange(10, 40)</var>
+                <var id="AC">randRange(20, 40)</var>
+                <var id="BC">randRange(20, 40)</var>
                 <var id="AB2">AC * AC - BC * BC</var>
+                <var id="AB">Math.sqrt(AB2)</var>
 
             </div>
 
@@ -52,18 +29,24 @@
                 <p>Bereken de lengte van de onbekende zijde.</p>
 
                 <div class="graphie">
-                    betterTriangle( BC, Math.sqrt(AB2), "A", "B", "C", "?", BC, AC );
-                    /*init({ 
-                        range: [[-10, 10], [-10, 10]],
-                        scale: [10, 10]
+                    d = 10;
+                    bounds = 3;
+                    init({ 
+                        range: [[-bounds, bounds], [-bounds, bounds]],
                     });
-                    */
-                    //var tr = new Triangle([0, 0], [120, 120, 120], 1, ["a", "b", "c"], [[0, 0], [0, 5], [5, 5]]);
-                    //tr.draw();
-                    //tr.rotate( randRange( 0, 90 ) );
-                    //tr.boxOut( [ [ [ -10, 1 ], [ 10, 1 ] ] ], [ 0,-0.5 ] )
                     
-                    //tr.drawLabels();
+                    var tr = new Triangle(
+                        [0, 0],
+                        [],
+                        1,
+                        {'sides': ["?", BC, AC], 'points': ['A', 'B', 'C']},
+                        [[0, AB/d], [0, 0], [BC/d, 0]]);
+                    tr.rotate(randRange( 0, 90 ) );
+                    tr.findCenterPoints();
+                    tr.translate([-tr.centroid[0], -tr.centroid[1]]);
+                    
+                    tr.draw();
+                    tr.drawLabels();
                 </div>
             </div>
 
