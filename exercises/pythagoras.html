@@ -4,6 +4,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Pythagorean theorem 1</title>
     <script src="../khan-exercise.js"></script>
+    <script>
+    d = 8;
+    bounds = 4;
+    
+    function getLetters() {
+        alfabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        i = Math.floor(Math.random()*23);
+        return [alfabet[i], alfabet[i+1], alfabet[i+2]];
+    }
+    
+    </script>
     <style>
         .schema span {
             width: 60px;
@@ -23,6 +34,7 @@
                 <var id="BC">randRange(20, 40)</var>
                 <var id="AB2">AC * AC - BC * BC</var>
                 <var id="AB">Math.sqrt(AB2)</var>
+                <var id="letters">getLetters()</var>
 
             </div>
 
@@ -30,8 +42,6 @@
                 <p>Bereken de lengte van de onbekende zijde.</p>
 
                 <div class="graphie">
-                    d = 10;
-                    bounds = 3;
                     init({ 
                         range: [[-bounds, bounds], [-bounds, bounds]],
                     });
@@ -40,7 +50,7 @@
                         [0, 0],
                         [],
                         1,
-                        {'sides': ["?", BC, AC], 'points': ['A', 'B', 'C']},
+                        {'sides': ["?", BC, AC], 'points': letters},
                         [[0, AB/d], [0, 0], [BC/d, 0]]);
                     tr.rotate(randRange( 0, 360 ));
                     tr.findCenterPoints();
@@ -61,17 +71,17 @@
                         <span>kwadraat</span>
                     </div>
                     <div class="fake_row schema">
-                        <span>AB =</span>
+                        <span><var>letters[0]</var><var>letters[1]</var> =</span>
                         <span id="schema_ab">...</span>
                         <span id="schema_ab2">...</span>
                    </div>
                     <div class="fake_row schema">
-                        <span>BC =</span>
+                        <span><var>letters[1]</var><var>letters[2]</var> =</span>
                         <span><var>BC</var></span>
                         <span id="schema_bc2"><var>BC * BC</var></span>
                    </div>
                     <div class="fake_row schema">
-                        <span>AC =</span>
+                        <span><var>letters[0]</var><var>letters[2]</var> =</span>
                         <span><var>AC</var></span>
                         <span id="schema_ac2"><var>AC * AC</var></span>
                    </div>
@@ -105,14 +115,13 @@
             <var id="AC">randRange(20, 40)</var>
             <var id="BC2">AC * AC - AB * AB</var>
             <var id="BC">Math.sqrt(BC2)</var>
+            <var id="letters">getLetters()</var>
         </div>
 
         <div class="question">
             <p>Bereken de lengte van de onbekende zijde.</p>
 
             <div class="graphie">
-                d = 10;
-                bounds = 3;
                 init({ 
                     range: [[-bounds, bounds], [-bounds, bounds]],
                 });
@@ -121,7 +130,7 @@
                     [0, 0],
                     [],
                     1,
-                    {'sides': [AB, "?", AC], 'points': ['A', 'B', 'C']},
+                    {'sides': [AB, "?", AC], 'points': letters},
                     [[0, AB/d], [0, 0], [BC/d, 0]]);
                 tr.rotate(randRange( 0, 360 ));
                 tr.findCenterPoints();
@@ -142,17 +151,17 @@
                     <span>kwadraat</span>
                 </div>
                 <div class="fake_row schema">
-                    <span>AB =</span>
+                    <span><var>letters[0]</var><var>letters[1]</var> =</span>
                     <span id="schema_ab"><var>AB</var></span>
                     <span id="schema_ab2"><var>AB * AB</var></span>
                </div>
                 <div class="fake_row schema">
-                    <span>BC =</span>
+                    <span><var>letters[1]</var><var>letters[2]</var> =</span>
                     <span id="schema_bc">...</span>
                     <span id="schema_bc2">...</span>
                </div>
                 <div class="fake_row schema">
-                    <span>AC =</span>
+                    <span><var>letters[0]</var><var>letters[2]</var> =</span>
                     <span id="schema_ac"><var>AC</var></span>
                     <span id="schema_ac2"><var>AC * AC</var></span>
                </div>
@@ -186,14 +195,13 @@
             <var id="BC">randRange(20, 40)</var>
             <var id="AC2">AB * AB + BC * BC</var>
             <var id="AC">Math.sqrt(AC2)</var>
+            <var id="letters">getLetters()</var>
         </div>
 
         <div class="question">
             <p>Bereken de lengte van de onbekende zijde.</p>
 
             <div class="graphie">
-                d = 10;
-                bounds = 3;
                 init({ 
                     range: [[-bounds, bounds], [-bounds, bounds]],
                 });
@@ -202,7 +210,7 @@
                     [0, 0],
                     [],
                     1,
-                    {'sides': [AB, BC, "?"], 'points': ['A', 'B', 'C']},
+                    {'sides': [AB, BC, "?"], 'points': letters},
                     [[0, AB/d], [0, 0], [BC/d, 0]]);
                 tr.rotate(randRange( 0, 360 ));
                 tr.findCenterPoints();
@@ -223,17 +231,17 @@
                     <span>kwadraat</span>
                 </div>
                 <div class="fake_row schema">
-                    <span>AB =</span>
+                    <span><var>letters[0]</var><var>letters[1]</var> =</span>
                     <span id="schema_ab"><var>AB</var></span>
                     <span id="schema_ab2"><var>AB * AB</var></span>
                </div>
                 <div class="fake_row schema">
-                    <span>BC =</span>
+                    <span><var>letters[1]</var><var>letters[2]</var> =</span>
                     <span id="schema_bc"><var>BC</var></span>
                     <span id="schema_bc2"><var>BC * BC</var></span>
                </div>
                 <div class="fake_row schema">
-                    <span>AC =</span>
+                    <span><var>letters[0]</var><var>letters[2]</var> =</span>
                     <span id="schema_ac">...</span>
                     <span id="schema_ac2">...</span>
                </div>
