@@ -142,7 +142,7 @@ $.extend(Khan.answerTypes, {
                 transformer: function(text) {
                     return forms.decimal.transformer(text);
                 },
-                example: "an integer, like <code>6</code>"
+                example: "een integer, zoals <code>6</code>"
             },
 
             proper: {
@@ -258,7 +258,7 @@ $.extend(Khan.answerTypes, {
                     });
                     return transformed;
                 },
-                example: "a percent, like <code>12.34\\%</code>"
+                example: "een percentage, zoals <code>12.34\\%</code>"
             },
 
             dollar: {
@@ -341,7 +341,7 @@ $.extend(Khan.answerTypes, {
                     if (options.inexact === undefined) {
                         return "an <em>exact</em> decimal, like <code>0.75</code>";
                     } else {
-                        return "a decimal, like <code>0.75</code>";
+                        return "een decimaal getal, zoals <code>0.75</code>";
                     }
                 })()
             }

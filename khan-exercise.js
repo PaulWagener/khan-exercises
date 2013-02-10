@@ -513,7 +513,7 @@ var Khan = (function() {
                     var makeVisible = function() {
                         $("#workarea, #hintsarea").css("padding-left", 60);
                         $("#scratchpad").show();
-                        $("#scratchpad-show").text("Hide scratchpad");
+                        $("#scratchpad-show").text("Verberg kladblok");
 
                         // If pad has never been created or if it's empty
                         // because it was removed from the DOM, recreate a new
@@ -537,7 +537,7 @@ var Khan = (function() {
 
                     $("#workarea, #hintsarea").css("padding-left", 0);
                     $("#scratchpad").hide();
-                    $("#scratchpad-show").text("Show scratchpad");
+                    $("#scratchpad-show").text("Open kladblok");
                 },
 
                 toggle: function() {
@@ -677,7 +677,7 @@ var Khan = (function() {
         },
 
         showSolutionButtonText: function() {
-            return hintsUsed ? "Show step (" + hints.length + " left)" : "Show Solution";
+            return hintsUsed ? "Laat stap zien (" + hints.length + " te gaan)" : "Laat antwoord zien";
         }
 
     };
@@ -858,14 +858,14 @@ var Khan = (function() {
         $("#check-answer-button")
             .removeAttr("disabled")
             .removeClass("buttonDisabled")
-            .val("Check Answer");
+            .val("Check Antwoord");
     }
 
     function disableCheckAnswer() {
         $("#check-answer-button")
             .attr("disabled", "disabled")
             .addClass("buttonDisabled")
-            .val("Please wait...");
+            .val("Even wachten...");
     }
 
     function isExerciseLoaded(exerciseName) {
@@ -1304,9 +1304,9 @@ var Khan = (function() {
                                     .removeClass("incorrect-activity")
                                     .addClass("correct-activity");
 
-                                thissolutionarea.attr("title", "Correct Answer");
+                                thissolutionarea.attr("title", "Correcte Antwoord");
                             } else {
-                                thissolutionarea.attr("title", "Incorrect Answer");
+                                thissolutionarea.attr("title", "Incorrecte Antwoord");
                             }
                         } else {
                             var thisValidator = Khan.answerTypes[answerType](thissolutionarea, solution);
@@ -1320,12 +1320,12 @@ var Khan = (function() {
                                     .removeClass("incorrect-activity")
                                     .addClass("correct-activity");
 
-                                thissolutionarea.attr("title", "Correct Answer");
+                                thissolutionarea.attr("title", "Correcte Antwoord");
                             } else {
                                 thissolutionarea
                                     .removeClass("correct-activity")
                                     .addClass("incorrect-activity");
-                                thissolutionarea.attr("title", "Incorrect Answer");
+                                thissolutionarea.attr("title", "Incorrecte Antwoord");
                             }
                         }
 
@@ -1687,7 +1687,7 @@ var Khan = (function() {
         attempts = 0;
         lastAction = (new Date).getTime();
 
-        $("#hint").val("I'd like a hint");
+        $("#hint").val("Ik wil graag een hint");
 
         $(Khan).trigger("newProblem");
 
@@ -1839,7 +1839,7 @@ var Khan = (function() {
             if (pass !== true) {
                 checkAnswerButton
                     .effect("shake", {times: 3, distance: 5}, 80)
-                    .val("Try Again");
+                    .val("Probeer nog eens");
 
                 // Is this a message to be shown?
                 if (typeof pass === "string") {
@@ -1944,7 +1944,7 @@ var Khan = (function() {
                 hintsUsed += 1;
 
                 $(this)
-                    .val($(this).data("buttonText") || "I'd like another hint (" + hints.length + " remaining)");
+                    .val($(this).data("buttonText") || "Ik wil nog een hint (" + hints.length + " te gaan)");
 
                 var problem = $(hint).parent();
 
