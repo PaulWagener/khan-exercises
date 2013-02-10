@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html data-require="math expressions spin word-problems">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Procenten</title>
+    <script src="../khan-exercise.js"></script>
+</head>
+<body>
+    <div class="exercise">
+    <div class="problems">
+        <div id="procenten">
+            <div class="vars">
+                <var id="aantal">randRange( 1, 150 )</var>
+                <var id="percentage">randRange( 10, 90 )</var>
+            </div>
+            <p class="question spin">
+                Bij een {club|vereniging} met <var>aantal</var> leden is <var>percentage</var>% een meisje. Hoeveel meisjes zijn dat?
+            </p>
+            <p class="solution" data-forms="integer"><var>round(aantal / 100 * percentage)</var></p>
+            <div class="hints">
+                <div>Maak een verhoudingstabel
+                    <table border="1">
+                        <tr style="border-bottom: 1px solid black">
+                            <td style="border-right: 1px solid black">Aantal</td>
+                            <td style="border-right: 1px solid black"><var>aantal</var></td>
+                            <td style="border-right: 1px solid black"><var>aantal / 100</var></td>
+                            <td><var>round(aantal / 100 * percentage)</var></td>
+                        </tr>
+                        <tr>
+                            <td style="border-right: 1px solid black">Procenten</td>
+                            <td style="border-right: 1px solid black">100</td>
+                            <td style="border-right: 1px solid black">1</td>
+                            <td><var>percentage</var></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
