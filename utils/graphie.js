@@ -186,10 +186,10 @@
                 return raphael.ellipse.apply(raphael, scalePoint(center).concat(scaleVector(radii)));
             },
 
-            arc: function(center, radius, startAngle, endAngle, sector) {
+            arc: function(center, radius, startAngle, endAngle, sector, sweep) {
                 startAngle = (startAngle % 360 + 360) % 360;
                 endAngle = (endAngle % 360 + 360) % 360;
-
+                
                 var cent = scalePoint(center);
                 var radii = scaleVector(radius);
                 var startVector = polar(radius, startAngle);
@@ -204,8 +204,8 @@
                     "M" + startPoint.join(" ") +
                     "A" + radii.join(" ") +
                     " 0 " + // ellipse rotation
-                    (largeAngle ? 1 : 0) +
-                    " 0 " + // sweep flag
+                    (largeAngle ? 1 : 1) +
+                    (sweep ? " 1 " : " 0 ") + // sweep flag
                     endPoint.join(" ") +
                     (sector ? "L" + cent.join(" ") + "z" : ""));
             },

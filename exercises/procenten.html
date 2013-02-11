@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-require="math expressions spin word-problems">
+<html data-require="math expressions spin word-problems graphie">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Procenten</title>
@@ -13,9 +13,33 @@
                 <var id="aantal">randRange( 1, 150 )</var>
                 <var id="percentage">randRange( 10, 90 )</var>
             </div>
-            <p class="question spin">
-                Bij een {club|vereniging} met <var>aantal</var> leden is <var>percentage</var>% een meisje. Hoeveel meisjes zijn dat?
-            </p>
+            <div class="question">
+                <p>Bij een {club|vereniging} met <var>aantal</var> leden is <var>percentage</var>% een meisje. Hoeveel meisjes zijn dat?</p>
+                <div class="graphie">
+                    init({
+                        range: [[0, 9], [-1, 1]],
+                        scale: [60, 60]
+                    });
+                    
+                    label([ 0, 0.2 ], "aantal spelers", "right", false).css('color', 'blue');
+                    label([ 0, -0.2 ], "percentage", "right", false);
+                    
+                    // Verhoudingstabel
+                    line([0, 0], [5, 0]);
+                    line([2, -0.4], [2, 0.4]);
+                    line([3, -0.4], [3, 0.4]);
+                    line([4, -0.4], [4, 0.4]);
+                    
+                    style({
+                        stroke: "red",
+                        arrows: "-&gt;"
+                    }, function() {
+                        arc([3, 0.3], 0.4, 180, 0, false, true);
+                        arc([4, 0.3], 0.4, 180, 0, false, true);
+                    });
+
+                </div>
+            </div>
             <p class="solution" data-forms="integer"><var>round(aantal / 100 * percentage)</var></p>
             <div class="hints">
                 <div>Maak een verhoudingstabel
