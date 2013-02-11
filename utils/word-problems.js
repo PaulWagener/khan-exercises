@@ -390,6 +390,11 @@ $.fn["word-problemsLoad"] = function() {
         {present: "drive", past: "drove", noun: "car", done: "driven", continuous: "driving"},
         {present: "walk", past: "walked", noun: "dog", done: "walked", continuous: "walking"}
     ]);
+    
+    var geslachten = KhanUtil.shuffle([
+        ["jongen", "jongens"],
+        ["meisje", "meisjes"]
+    ]);
 
     var indefiniteArticle = function(word) {
         var vowels = ["a", "e", "i", "o", "u"];
@@ -407,7 +412,15 @@ $.fn["word-problemsLoad"] = function() {
         personVar: function(i) {
             return people[i - 1][0].charAt(0).toLowerCase();
         },
-
+        
+        jongen: function() {
+            return geslachten[0][0];
+        },
+        
+        jongens: function() {
+            return geslachten[0][1];
+        },
+        
         he: function(i) {
             return people[i - 1][1] === "m" ? "he" : "she";
         },
