@@ -326,22 +326,14 @@ $.fn["word-problemsLoad"] = function() {
         "camera"
     ]);
 
-    var clothes = KhanUtil.shuffle([
-        "hat",
-        "pair of pants",
-        "belt",
-        "necklace",
-        "purse",
-        "pair of shoes",
-        "blouse",
-        "skirt",
-        "watch",
-        "pair of socks",
-        "sweatshirt",
-        "sweater",
-        "tie",
-        "scarf",
-        "dress"
+    var kleding = KhanUtil.shuffle([
+        ["hoed", "hoeden"],
+        ["broek", "broeken"],
+        ["riem", "riemen"],
+        ["halsketting", "halskettingen"],
+        ["handtas", "handtasjes"],
+        ["rok", "rokken"],
+        ["stropdas", "stropdassen"]
     ]);
 
     var sides = KhanUtil.shuffle([
@@ -509,8 +501,12 @@ $.fn["word-problemsLoad"] = function() {
             return schools[i - 1];
         },
 
-        clothing: function(i) {
-            return clothes[i - 1];
+        kledingstuk: function() {
+            return kleding[0][0];
+        },
+        
+        kledingstukken: function(i) {
+            return kleding[0][1];
         },
 
         color: function(i) {

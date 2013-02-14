@@ -133,23 +133,53 @@
             </div>    
         </div>
         
-        <div id="club" data-type="vraag-aantal">
+        <div id="klas" data-type="vraag-percentage">
             <div class="vars">
                 <var id="aantal_naam">"aantal " + jongens()</var>
             </div>
             <div class="question">
-                <p class="spin">Bij een {club|vereniging} met <var>aantal</var> leden is <var>percentage</var>% een <var>jongen()</var>. Hoeveel <var>jongens()</var> zijn dat?</p>
+                <p class="spin">In een klas van <var>aantal</var> leerlingen zitten <var>aantal_gedeelte</var> <var>jongens()</var>. Hoeveel procent van de klas is een <var>jongen()</var>?</p>
             </div>
         </div>
         
-        <div id="smash" data-type="vraag-percentage">
+        <div id="sport-vereniging" data-type="vraag-percentage">
             <div class="vars">
                 <var id="aantal_naam">"aantal spelers"</var>
             </div>
             <div class="question">
-                <p class="spin">Volleybalvereniging 'Smash' heeft <var>aantal</var> leden. Hiervan spelen <var>aantal_gedeelte</var> leden ook competitie. Hoeveel procent van de leden speelt competitie?</p>
+                <p class="spin">{Volleybalvereniging 'Smash'|Zwemvereniging '{Plons|Splash}'|Voetbalvereniging 'Goal!'} heeft <var>aantal</var> leden.</p>
+                    
+                <p>Hiervan spelen <var>aantal_gedeelte</var> leden ook competitie. Hoeveel procent van de leden speelt competitie?</p>
             </div>
         </div>
+        
+        <div id="uitverkoop" data-type="vraag-percentage">
+            <div class="vars">
+                <var id="aantal_naam">"aantal euro's"</var>
+            </div>
+            <div class="question spin">
+                {Tijdens een sale|In de uitverkoop} kost een <var>kledingstuk()</var> van € <var>aantal</var>,- nu nog maar € <var>aantal_gedeelte</var>,-. Hoeveel procent van de originele prijs is de <var>kledingstuk()</var> nu?
+            </div>
+        </div>
+        
+        <div id="fietsen" data-type="vraag-aantal">
+            <div class="vars">
+                <var id="aantal_naam">"aantal leerlingen"</var>
+            </div>
+            <div class="question spin">
+                Op een school met <var>aantal</var> leerlingen komt <var>percentage</var>% met de {fiets|brommer|auto}. Hoeveel leerlingen zijn dat?
+            </div>
+        </div>
+        
+        <div id="supermarkt" data-type="vraag-aantal">
+            <div class="vars">
+                <var id="aantal_naam">"aantal euro's"</var>
+            </div>
+            <div class="question spin">
+                <var>person(1)</var> koopt een {computer|wasmachine|monitor|bankstel} van € <var>aantal</var>,-. Bij de kassa krijgt hij <var>percentage</var>% korting. Bereken hoeveel <var>percentage</var>% van € <var>aantal</var>,- is.
+            </div>
+        </div>
+        
     </div>
     </div>
 </body>
